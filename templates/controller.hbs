@@ -1,0 +1,11 @@
+<?php
+
+namespace {{#each namespaces}}{{#unless @last}}{{#unless @first}}\\{{/unless}}{{this}}{{/unless}}{{/each}};
+
+class {{#each namespaces}}{{#if @last}}{{this}}{{/if}}{{/each}}Controller extends \CatalystWP\Nucleus\Controller
+{
+
+    public function initialize()
+    {
+    }
+}

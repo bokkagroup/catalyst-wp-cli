@@ -1,0 +1,40 @@
+<?php define('DB_NAME', '{{project_name}}');
+define('DB_USER', 'wp');
+define('DB_PASSWORD', 'wp');
+define('DB_HOST', 'localhost');
+define('DB_CHARSET', 'utf8');
+define('DB_COLLATE', '');
+
+$table_prefix  = 'wp_';
+define( 'WP_SITEURL', 'http://{{project_name}}.local' );
+
+define( 'WP_HOME', 'http://{{project_name}}.local' );
+define('WP_DEBUG', true);
+
+define( 'AUTH_KEY', '`F-T=h*;e.?UPa,eX^k]?AY%9=RaTpT%7o/Ab|~2wE{[~Z=-Xmd7>~X[,j~ljJCJ' );
+define( 'SECURE_AUTH_KEY', '|5O7ZxrRi1>i<;:4p3vdz=4i|gE];[}7sag t^16IZt1xp0<|fa!3lu@BO+#Zkv;' );
+define( 'LOGGED_IN_KEY', '$DraL9T*z,,shiRO;c5_2IB>A!4tjoXH8s5_H<5,ItlM4(Ckz6|+B LM6&]!T_7h' );
+define( 'NONCE_KEY', 'gt%f+RB+g%29[nQm3>)Ga3Xl -8+6!]{]4nR}YWV]%mhGfRwot4[h /W7-Y*]Jyv' );
+define( 'AUTH_SALT', 'E?,9<pk8N6jh<w46yn&/Qh$/FNGhKI`xBG]XuDC,HCP2d+&yq?Ci1yb6,P%SblZo' );
+define( 'SECURE_AUTH_SALT', '0`2!Nf |E9EY:msG27BGN!6t(I|[7|4ps09[[-Xqb)Lv&mmlt!EC_2^ji~HAEDlA' );
+
+
+{{#if multisite}}
+define( 'WP_ALLOW_MULTISITE', true );
+
+# Unccomment the following lines
+/*
+define('MULTISITE', true);
+define('SUBDOMAIN_INSTALL', true);
+define('DOMAIN_CURRENT_SITE', '{{project_name}}.local');
+define('PATH_CURRENT_SITE', '/');
+define('SITE_ID_CURRENT_SITE', 1);
+define('BLOG_ID_CURRENT_SITE', 1);
+*/
+{{/if}}
+
+
+if ( !defined('ABSPATH') )
+    define('ABSPATH', dirname(__FILE__) . '/');
+
+require_once(ABSPATH . 'wp-settings.php');

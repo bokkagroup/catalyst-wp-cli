@@ -1,0 +1,24 @@
+{
+  "name": "catalyst-cli",
+  "version": "0.0.1",
+  "description": "A CLI for working with Catalyst WP and Local Dev Environments",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "catalyst-wp": "./index.js"
+  },
+  "author": "Mike McGuire (Bokka Group)",
+  "license": "\tGPL-3.0",
+  "dependencies": {
+    "colors": "^1.1.2",
+    "commander": "^2.11.0",
+    "extfs": "0.0.7",
+    "handlebars": "^4.0.10",
+    "inquirer": "^3.2.1",
+    "node-yaml": "^3.1.1",
+    "pem": "^1.9.7",
+    "simple-git": "^1.89.0"
+  }
+}

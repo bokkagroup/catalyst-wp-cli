@@ -1,0 +1,16 @@
+server {
+    listen                      80;
+    {{#if ssl}}
+    listen                      443 ssl;
+    {{/if}}
+
+    server_name                 {{#if multisite}}*.{{project_name}}.local{{/if}} {{project_name}}.local;
+    root                        /srv/www/{{project_name}}/htdocs;
+    include                     /etc/nginx/nginx-wp-common.conf;
+
+    {{#if ssl}}
+    #ssl    on;
+    #ssl_certificate             /srv/www/{{project_name}}/provision/{{project_name}}.local.cert;
+    #ssl_certificate_key         /srv/www/{{project_name}}/provision/{{project_name}}.local.key;
+    {{/if}}
+}
