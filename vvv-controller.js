@@ -90,7 +90,7 @@ class Controller extends Project {
     getVVVConfig()
     {
         return new Promise((resolve, reject)=>{
-            yaml.read(process.env['HOME'] + '/vagrants/vvv-custom.yml',{
+            yaml.read(process.env['HOME'] + '/vagrants/config/config.yml',{
                 encoding: "utf8",
                 schema: yaml.schema.defaultSafe
             }, function(err, data) {
@@ -105,7 +105,7 @@ class Controller extends Project {
     saveVVVConfig(data)
     {
         return new Promise((resolve,reject)=> {
-            yaml.write(process.env['HOME'] + '/vagrants/vvv-custom.yml', data, {
+            yaml.write(process.env['HOME'] + '/vagrants/config/config.yml', data, {
                 encoding: "utf8",
                 schema: yaml.schema.defaultSafe
             }, function(err) {
