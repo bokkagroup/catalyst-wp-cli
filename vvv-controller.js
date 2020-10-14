@@ -121,7 +121,7 @@ class Controller extends Project {
     {
         this.config.then((data)=>{
             data.sites[this.project_name] = {
-                hosts: [this.project_name + '.local']
+                hosts: [this.project_name + '.test']
             };
 
             this.saveVVVConfig(data).then(()=>{ console.log("Enabled Install".green); });
