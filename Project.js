@@ -60,7 +60,7 @@ class Project {
             answers.project_name = this.project_name;
             console.log('Setting up project directories...'.green);
             this.createProjectDirectory();
-            this.setupGitRepo().then(() => {
+            this.setupGitRepo(answers).then(() => {
                 return this.setupChildTheme();
             }).then(() => {
                 return this.composerInstall();
@@ -95,18 +95,25 @@ class Project {
     /**
      * Clones the CatalystWP boilerplate
      */
-    setupGitRepo()
+    setupGitRepo(config)
     {
+      let repoUrl;
         if (!fs.isEmptySync(global.catalystBaseDir)) {
             console.error(('Error: Directory is not empty cannot git clone (' +  global.catalystBaseDir + ')').red);
             process.exit(1);
         }
 
+        if(config.upstream) {
+          repoUrl = config.upstream;
+          console.log(config.upstream);
+        } else {
+          repoUrl = 'git@github.com:bokkagroup/catalyst-wp-boilerplate.git';
+        }
 
         return new Promise(function(resolve, reject) {
             // do a thing, possibly async, then…
             console.log('Cloning Catalyst WP...'.green);
-            git(global.catalystBaseDir).clone('git@github.com:bokkagroup/catalyst-wp-boilerplate.git', global.catalystBaseDir)
+            git(global.catalystBaseDir).clone(repoUrl, global.catalystBaseDir)
                 .then(()=>{
                     resolve('success');
                 })
@@ -123,6 +130,9 @@ class Project {
     {
         const filepath = global.catalystBaseDir + '/wp-content/themes/atom-child';
 
+        if(fs.existsSync(filepath)) {
+          return;
+        }
         if(!fs.isEmptySync(filepath)){
             console.error('Warning: Directory is not empty cannot git clone ('+ filepath +')');
         }
