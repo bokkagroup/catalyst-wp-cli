@@ -15,7 +15,7 @@
     "colors": "^1.1.2",
     "commander": "^2.11.0",
     "extfs": "0.0.7",
-    "handlebars": "^4.0.10",
+    "handlebars": "^4.7.7",
     "inquirer": "^3.2.1",
     "node-yaml": "^3.1.1",
     "pem": "^1.9.7",
